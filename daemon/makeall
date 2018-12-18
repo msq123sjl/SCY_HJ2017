@@ -1,0 +1,15 @@
+#!/bin/sh
+LIST=" \
+	common readmeter up_proc ad73360 clock Cont_Warrn  stat uc1608lcd watchdog read7841 readcarrier gsm-module/multiplexer\
+"
+build_target(){
+	cd $1
+	make clean >/dev/null
+	make
+	cd ..
+}
+
+for target in $LIST
+	do
+		build_target ${target}
+	done
